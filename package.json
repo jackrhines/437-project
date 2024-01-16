@@ -1,0 +1,22 @@
+{
+  "name": "437-project",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jackrhines/437-project.git"
+  },
+  "author": "Jack Rhines",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jackrhines/437-project/issues"
+  },
+  "homepage": "https://github.com/jackrhines/437-project#readme",
+  "workspaces": [
+    "packages/*"
+  ]
+}
