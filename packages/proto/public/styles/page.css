@@ -4,8 +4,13 @@ body {
 }
 
 header {
+    display: flex;
     background: #b298e5;
     color: black;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2em;
 }
 
 a {
