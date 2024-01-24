@@ -17,13 +17,32 @@ a {
     color: mediumpurple;
 }
 
-ul, li {
-    display: inline-table;
-    margin-right: 2rem;
+/*ul, li {*/
+/*    display: inline-table;*/
+/*    margin-right: 2rem;*/
+/*}*/
+
+/*dt {*/
+/*    margin-top: 1.5rem;*/
+/*}*/
+
+.gallery-heading {
+    text-align: center;
 }
 
-dt {
-    margin-top: 1.5rem;
+.gallery-display {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-content: center;
+    padding: 2%;
+}
+
+.gallery-element {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
 }
 
 h1, h2, h3, h4, h5, h6 {

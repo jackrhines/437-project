@@ -12,58 +12,63 @@
     </header>
 
     <body>
-        <ul>
-            <li>
-                <h2>Best of the Week</h2>
-                <dl id="top-submissions">
-                    <dt><b>Desert Sunset</b></dt>
-                    <dd><a href="/desert-sunset.html"><img src="/art/desert-sunset.jpg" width="200" height="200"></a></dd>
-                    <dt><b>Desert Sunset</b></dt>
-                    <dd><img src="/art/fireball.jpg" width="200" height="200"></dd>
-                    <dt><b>Track Star</b></dt>
-                    <dd><img src="/art/track-star.jpg" width="200" height="200"></dd>
-                    <dt>
-                        <a href="/">
-                            <svg class="icon">
-                                <use href="/icons/gallery.svg#point-right-icon" />
-                            </svg>
-                            <b>More art this way</b>
-                        </a>
-                    </dt>
-                </dl>
-            </li>
-            <li>
-                <h2>Seriously Silly Submissions</h2>
-                <dl id="silly-submissions">
-                    <dt><b>Who knows?</b></dt>
-                    <dd><a><img src="/art/who-knows.jpg" width="200" height="200"></a></dd>
-                    <dt><b>Confusion</b></dt>
-                    <dd><a><img src="/art/confusion.webp" width="200" height="200"></a></dd>
-                    <dt><b>DoodleBob</b></dt>
-                    <dd><a><img src="/art/doodlebob.webp" width="200" height="200"></a></dd>
-                    <dt>
-                        <a href="/">
-                            <svg class="icon">
-                                <use href="/icons/gallery.svg#point-right-icon" />
-                            </svg>
-                            <b>More art this way</b>
-                        </a>
-                    </dt>
-                </dl>
-            </li>
-            <li>
+        <h2 class="gallery-heading">Best of the Week</h2>
+        <section class="gallery-display" id="top-submissions">
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Desert Sunset</b>
+                <img src="/art/desert-sunset.jpg" width="200" height="200">
+            </a>
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Track Star</b>
+                <img src="/art/track-star.jpg" width="200" height="200">
+            </a>
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Fireball</b>
+                <img src="/art/fireball.jpg" width="200" height="200">
+            </a>
+            <a class="see-more" href="/">
+                <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
+                <b>More art this way</b>
+            </a>
+        </section>
+
+        <h2 class="gallery-heading">Seriously Silly Submissions</h2>
+        <section class="gallery-display" id="silly-submissions">
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Who knows?</b>
+                <img src="/art/who-knows.jpg" width="200" height="200">
+            </a>
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Confusion</b>
+                <img src="/art/confusion.webp" width="200" height="200">
+            </a>
+            <a class="gallery-element" href="/desert-sunset.html">
+                <b>Doodlebob</b>
+                <img src="/art/doodlebob.webp" width="200" height="200">
+            </a>
+            <a class="see-more" href="/">
+                <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
+                <b>More art this way</b>
+            </a>
+        </section>
+
+        <section class="gallery-display" id="toolbar">
+            <section class="gallery-element">
                 <h2>Looking for something else?</h2>
-                <p><a href="/">
+                <a href="/">
                     <svg class="icon">
                         <use href="/icons/gallery.svg#easel-icon" />
                     </svg>See more categories
-                </a></p>
+                </a>
+            </section>
+
+            <section class="gallery-element">
                 <h2>Submit your own artwork</h2>
-                <p><a href="/submit-art.html">
-                    <svg class="icon">
-                        <use href="/icons/gallery.svg#easel-icon" />
-                    </svg>It's easy</a></p>
-            </li>
-        </ul>
+                <a href="/submit-art.html">
+                <svg class="icon">
+                    <use href="/icons/gallery.svg#easel-icon" />
+                </svg>It's easy</a>
+            </section>
+        </section>
     </body>
 </html>
