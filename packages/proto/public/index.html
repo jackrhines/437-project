@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel="stylesheet" href="/styles/reset.css" />
         <link rel="stylesheet" href="/styles/page.css" />
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,11 +27,12 @@
                 <b>Fireball</b>
                 <img src="/art/fireball.jpg" width="200" height="200">
             </a>
-            <a class="see-more" href="/">
-                <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
-                <b>More art this way</b>
-            </a>
         </section>
+
+        <a class="see-more" href="/">
+            <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
+            <b>More top pieces this way</b>
+        </a>
 
         <h2 class="gallery-heading">Seriously Silly Submissions</h2>
         <section class="gallery-display" id="silly-submissions">
@@ -46,16 +48,17 @@
                 <b>Doodlebob</b>
                 <img src="/art/doodlebob.webp" width="200" height="200">
             </a>
-            <a class="see-more" href="/">
-                <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
-                <b>More art this way</b>
-            </a>
         </section>
 
-        <section class="gallery-display" id="toolbar">
+        <a class="see-more" href="/">
+            <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
+            <b>More silly art this way</b>
+        </a>
+
+        <footer class="gallery-display" id="toolbar">
             <section class="gallery-element">
                 <h2>Looking for something else?</h2>
-                <a href="/">
+                <a class="white-text" href="/">
                     <svg class="icon">
                         <use href="/icons/gallery.svg#easel-icon" />
                     </svg>See more categories
@@ -64,11 +67,11 @@
 
             <section class="gallery-element">
                 <h2>Submit your own artwork</h2>
-                <a href="/submit-art.html">
+                <a class="white-text" href="/submit-art.html">
                 <svg class="icon">
                     <use href="/icons/gallery.svg#easel-icon" />
                 </svg>It's easy</a>
             </section>
-        </section>
+        </footer>
     </body>
 </html>
