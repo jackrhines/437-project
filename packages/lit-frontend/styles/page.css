@@ -11,7 +11,7 @@ header {
     color: var(--color-text-standout);
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: normal;
     padding: 2em;
 }
 
