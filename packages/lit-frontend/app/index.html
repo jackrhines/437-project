@@ -7,21 +7,31 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&family=Ubuntu:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
         <script type="module" src="../components/drop-down.ts"></script>
+        <script type="module" src="../components/hello-world.ts"></script>
+        <script type="module" src="../components/user-panel.ts"></script>
 
     </head>
 
     <header>
-<!--        <section>-->
-            <h1>The Gallery</h1>
-            <strong>The best art created by you.</strong>
-<!--        </section>-->
+        <h1>The Gallery</h1>
+        <strong>The best art created by you.</strong>
         <drop-down>
             <svg class="icon"><use href="/icons/gallery.svg#profile"/></svg>
-            Hello, Jack
+            <ul slot="menu">
+                <li>
+                    <user-panel name="Jack"></user-panel>
+                </li>
+                <li><hr /></li>
+                <li>Sign Out</li>
+            </ul>
         </drop-down>
     </header>
 
     <body>
+<!--        <drop-down>-->
+<!--&lt;!&ndash;            <hello-world>Jack</hello-world>&ndash;&gt;-->
+
+<!--        </drop-down>-->
         <h2 class="gallery-heading">Best of the Week</h2>
         <section class="gallery-display" id="top-submissions">
             <a class="gallery-element" href="/app/desert-sunset.html">

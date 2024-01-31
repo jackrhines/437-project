@@ -2,4 +2,7 @@
     --color-background-primary: blanchedalmond;
     --color-background-secondary: #b298e5;
     --color-text-standout: black;
+
+    --font-body: 'Quicksand', sans-serif;
+    --font-heading: 'Ubuntu', sans-serif;
 }
