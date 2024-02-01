@@ -1,6 +1,7 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property } from "lit/decorators.js";
 import {} from "./hello-world";
+import {} from "./toggle-switch"
 
 @customElement("user-panel")
 class UserPanelElement extends LitElement {
@@ -15,7 +16,10 @@ class UserPanelElement extends LitElement {
                 <a href="/app/profile.html">Profile</a>
                 <a href="/app/submissions.html">Submissions</a>
                 <a href="/app/favorites.html">Favorites</a>
+                <hr />
+                <toggle-switch>Dark Mode</toggle-switch>
             </dl>
+
         `
     }
 

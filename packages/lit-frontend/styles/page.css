@@ -1,5 +1,6 @@
 body {
     background: var(--color-background-primary);
+    /*background: dimgray;*/
     font-family: var(--font-body);
     /*padding: 5%;*/
     text-align: center;
@@ -8,6 +9,7 @@ body {
 header {
     display: flex;
     background: var(--color-background-secondary);
+    /*background: #7537d3;*/
     color: var(--color-text-standout);
     align-items: center;
     justify-content: space-between;
