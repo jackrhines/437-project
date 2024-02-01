@@ -10,10 +10,6 @@ export class HelloWorldElement extends LitElement {
     }
 
     static styles = css`
-        //h1 {
-        //  font: var(--size-type-xlarge) var(--font-family-display);
-        //}
-    
         .fancy {
           font-family: var(--font-family-body);
           font-style: italic;

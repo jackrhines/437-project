@@ -1,7 +1,7 @@
 body {
     background: var(--color-background-primary);
     font-family: var(--font-body);
-    padding: 5%;
+    /*padding: 5%;*/
     text-align: center;
 }
 
@@ -9,9 +9,8 @@ header {
     display: flex;
     background: var(--color-background-secondary);
     color: var(--color-text-standout);
-    flex-direction: column;
     align-items: center;
-    justify-content: normal;
+    justify-content: space-between;
     padding: 2em;
 }
 
