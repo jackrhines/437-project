@@ -67,8 +67,11 @@ class ToggleSwitchElement extends LitElement {
 
         console.log(this.on)
 
-        const body = document.body;
+        const body = document.body
+
+        this.on ? body.style.background = "dimgray" : body.style.background = "blanchedalmond"
+        // body.style.background = "dimgray";
         // body.classList.toggle("color-background-primary-dark");
-        body.classList.add("color-background-primary-dark");
+        // body.classList.add("color-background-primary-dark");
     }
 }
