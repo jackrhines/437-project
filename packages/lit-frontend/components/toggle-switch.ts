@@ -6,6 +6,9 @@ class ToggleSwitchElement extends LitElement {
     @property({ reflect: true, type: Boolean })
     on: boolean = false;
 
+    // @property({ reflect: true, type: Function })
+    // handleChange: Function = this._handleChange
+
     render() {
         return html`<label>
       <slot>Label</slot>
@@ -61,5 +64,11 @@ class ToggleSwitchElement extends LitElement {
     _handleChange(ev: Event) {
         const target = ev.target;
         this.on = target?.checked;
+
+        console.log(this.on)
+
+        const body = document.body;
+        // body.classList.toggle("color-background-primary-dark");
+        body.classList.add("color-background-primary-dark");
     }
 }
