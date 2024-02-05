@@ -15,7 +15,6 @@ body {
 header {
     display: flex;
     background: var(--color-background-secondary);
-    /*background: #7537d3;*/
     color: var(--color-text-standout);
     align-items: center;
     justify-content: space-between;
@@ -69,14 +68,4 @@ svg.icon {
     width: 2em;
     vertical-align: top;
     fill: currentColor;
-}
-
-footer {
-    display: flex;
-    background: var(--color-background-secondary);
-    color: var(--color-text-standout);
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 2em;
 }

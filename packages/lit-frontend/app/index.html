@@ -11,24 +11,13 @@
         <script type="module" src="../components/user-panel.ts"></script>
         <script type="module" src="../components/toggle-switch.ts"></script>
         <script type="module" src="../components/art-card.ts"></script>
-
+        <script type="module" src="../components/site-header.ts"></script>
+        <script type="module" src="../components/site-footer.ts"></script>
     </head>
 
-    <header>
-        <h1 class="extra-padding">The Gallery</h1>
-        <drop-down>
-            <svg class="icon"><use href="/icons/gallery.svg#profile"/></svg>
-            <ul slot="menu">
-                <li>
-                    <user-panel name="Jack"></user-panel>
-                </li>
-                <li><hr /></li>
-                <li>Sign Out</li>
-            </ul>
-        </drop-down>
-    </header>
-
     <body>
+        <site-header></site-header>
+
         <h2 class="gallery-heading">Best of the Week</h2>
         <section class="gallery-display" id="top-submissions">
             <art-card
@@ -47,7 +36,6 @@
                     title="Fireball"
                     artist="Oppenheimer"></art-card>
         </section>
-
         <a class="see-more" href="/">
             <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
             <b>More top pieces this way</b>
@@ -71,29 +59,29 @@
                     title="Doodlebob"
                     artist="SpongeBob"></art-card>
         </section>
-
         <a class="see-more" href="/">
             <svg class="icon"><use href="/icons/gallery.svg#point-right-icon"/></svg>
             <b>More silly art this way</b>
         </a>
 
-        <footer class="gallery-display" id="toolbar">
-            <section class="gallery-element">
-                <h2>Looking for something else?</h2>
-                <a class="white-text" href="/app/">
-                    <svg class="icon">
-                        <use href="/icons/gallery.svg#easel-icon" />
-                    </svg>See more categories
-                </a>
-            </section>
+        <site-footer></site-footer>
+<!--        <footer class="gallery-display" id="toolbar">-->
+<!--            <section class="gallery-element">-->
+<!--                <h2>Looking for something else?</h2>-->
+<!--                <a class="white-text" href="/app/">-->
+<!--                    <svg class="icon">-->
+<!--                        <use href="/icons/gallery.svg#easel-icon" />-->
+<!--                    </svg>See more categories-->
+<!--                </a>-->
+<!--            </section>-->
 
-            <section class="gallery-element">
-                <h2>Submit your own artwork</h2>
-                <a class="white-text" href="/app/submit-art.html">
-                <svg class="icon">
-                    <use href="/icons/gallery.svg#easel-icon" />
-                </svg>It's easy</a>
-            </section>
-        </footer>
+<!--            <section class="gallery-element">-->
+<!--                <h2>Submit your own artwork</h2>-->
+<!--                <a class="white-text" href="/app/submit-art.html">-->
+<!--                <svg class="icon">-->
+<!--                    <use href="/icons/gallery.svg#easel-icon" />-->
+<!--                </svg>It's easy</a>-->
+<!--            </section>-->
+<!--        </footer>-->
     </body>
 </html>
