@@ -8,7 +8,7 @@ export class SiteHeader extends LitElement {
     render() {
         return html`
             <header>
-            <h1 class="extra-padding">The Gallery</h1>
+            <a href="/app/index.html" class="no-styling"><h1 class="extra-padding">The Gallery</h1></a>
             <drop-down>
                 <svg class="icon"><use href="/icons/gallery.svg#profile"/></svg>
                 <ul slot="menu">
@@ -43,6 +43,11 @@ export class SiteHeader extends LitElement {
 
       h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-heading);
+      }
+      
+      .no-styling {
+        text-decoration: none;
+        color: var(--color-text-standout)
       }
     `
 }
