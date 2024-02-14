@@ -32,6 +32,16 @@ app.post("/api/profiles", (req: Request, res: Response) => {
       .catch((err) => res.status(500).send(err));
 });
 
+app.put("/api/profiles/:userid", (req: Request, res: Response) => {
+  const { userid } = req.params;
+  const newProfile = req.body;
+
+  profiles
+      .update(userid, newProfile)
+      .then((profile: Profile) => res.json(profile))
+      .catch((err) => res.status(404).end());
+});
+
 app.listen(port, () => {
   console.log(`Server running at http://localhost:${port}`);
 });

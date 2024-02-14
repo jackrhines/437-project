@@ -4,7 +4,7 @@ import { Profile } from "../models/profile";
 import {serverPath} from "../utils/rest";
 import {} from "./hello-world";
 
-@customElement("user-profile")
+@customElement("view-profile")
 export class UserProfileElement extends LitElement {
     @property()
     path: string = "";
@@ -54,5 +54,61 @@ export class UserProfileElement extends LitElement {
         </p>`;
     }
 
-    static styles = css`...`;
+    static styles = css``;
+}
+
+@customElement("edit-profile")
+export class UserProfileEditElement extends UserProfileElement {
+    render() {
+        return html`
+            <form @submit=${this._handleSubmit}>
+                <dl>
+                    <dt>Username</dt>
+                    <dd><input name="userid" disabled .value=${this.profile.userid}/></dd>
+                    <dt>Name</dt>
+                    <dd><input name="name" disabled .value=${this.profile.name}/></dd>
+                    <dt>Nickname</dt>
+                    <dd><input name="nickname" disabled .value=${this.profile.nickname}/></dd>
+                </dl>
+                <button type="submit">Submit</button>
+            </form>
+        `;
+    }
+
+    static styles = [...UserProfileElement.styles, css``];
+
+    _handleSubmit(ev: Event) {
+        ev.preventDefault(); // prevent browser from submitting form data itself
+
+        const target = ev.target as HTMLFormElement;
+        const formdata = new FormData(target);
+        const entries = Array.from(formdata.entries())
+            .map(([k, v]) => (v === "" ? [k] : [k, v]))
+            .map(([k, v]) =>
+                k === "genres" || k === "mediums" || k === "artists"
+                    ? [k, (v as string).split(",").map((s) => s.trim())]
+                    : [k, v]
+            );
+        const json = Object.fromEntries(entries);
+
+        this._putData(json);
+    }
+
+    _putData(json: Profile) {
+        fetch(serverPath(this.path), {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(json)
+        })
+            .then((response) => {
+                if (response.status === 200) return response.json();
+                else return null;
+            })
+            .then((json: unknown) => {
+                if (json) this.profile = json as Profile;
+            })
+            .catch((err) =>
+                console.log("Failed to PUT form data", err)
+            );
+    }
 }
