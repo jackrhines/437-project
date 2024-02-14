@@ -8,7 +8,8 @@ const profileSchema = new Schema<Profile>(
         nickname: { type: String, trim: true },
         city: { type: String, trim: true },
         genres: [String],
-        mediums: [String]
+        mediums: [String],
+        artists: [String]
     },
     { collection: "user_profiles" }
 );

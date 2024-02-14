@@ -5,7 +5,7 @@ import { customElement, property } from "lit/decorators.js";
 export class HelloWorldElement extends LitElement {
     render() {
         return html`<h2>
-            Hello, <slot>world</slot>!
+            Hello <slot></slot>!
         </h2>`;
     }
 

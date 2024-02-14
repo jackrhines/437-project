@@ -5,4 +5,5 @@ export interface Profile {
     city?: string;
     genres?: string[];
     mediums?: string[];
+    artists?: string[];
 }
