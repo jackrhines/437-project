@@ -15,9 +15,6 @@ export class UserProfileElement extends LitElement {
     @property()
     handleEdit = () => {};
 
-    @property()
-    edit: boolean;
-
     _fetchData(path: string) {
         fetch(serverPath(path))
             .then((response) => {
@@ -27,7 +24,6 @@ export class UserProfileElement extends LitElement {
                 return null;
             })
             .then((json: unknown) => {
-                console.log(json);
                 if (json) this.profile = json as Profile;
             });
     }
@@ -50,13 +46,7 @@ export class UserProfileElement extends LitElement {
         super.attributeChangedCallback(name, oldValue, newValue);
     }
 
-    // dispatchEdit(e: MouseEvent) {
-    //     this.dispatchEvent(new CustomEvent(“edit”, {
-    //         bubbles: true,
-    //           detail: true}));
-    // }
-
-    dispatchClick(e: MouseEvent) {
+    dispatchClick() {
         this.dispatchEvent(new CustomEvent("edit", {
             bubbles: true,
             detail: true}));
@@ -117,7 +107,12 @@ export class UserProfileEditElement extends UserProfileElement {
             detail: false}));
     }
 
-    // static styles = [...UserProfileElement.styles, css``];
+    static styles = css`
+        dt {
+            font-family: var(--font-heading);
+            font-size: 1em;
+        }
+        `;
 
     _handleSubmit(ev: Event) {
         ev.preventDefault(); // prevent browser from submitting form data itself

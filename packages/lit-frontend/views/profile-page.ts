@@ -11,19 +11,15 @@ export class UserProfileElement extends LitElement {
   edit: boolean = false;
 
   _toggleEdit() {
-    console.log(this.edit);
     this.edit = !this.edit;
-    this.requestUpdate();
   }
 
   render() {
     console.log('hey');
     return html`
       ${this.edit 
-              ? html`<edit-profile path=${this.path} @edit=${this._toggleEdit}></edit-profile>` 
-              : html`
-                    <view-profile path=${this.path} @edit=${this._toggleEdit} edit=${this.edit}></view-profile>
-              `
+          ? html`<edit-profile path=${this.path} @edit=${this._toggleEdit}></edit-profile>` 
+          : html`<view-profile path=${this.path} @edit=${this._toggleEdit}></view-profile>`
     }`
   }
 
