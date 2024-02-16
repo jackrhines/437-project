@@ -12,6 +12,12 @@ export class UserProfileElement extends LitElement {
     @state()
     profile?: Profile;
 
+    @property()
+    handleEdit = () => {};
+
+    @property()
+    edit: boolean;
+
     _fetchData(path: string) {
         fetch(serverPath(path))
             .then((response) => {
@@ -21,6 +27,7 @@ export class UserProfileElement extends LitElement {
                 return null;
             })
             .then((json: unknown) => {
+                console.log(json);
                 if (json) this.profile = json as Profile;
             });
     }
@@ -43,14 +50,29 @@ export class UserProfileElement extends LitElement {
         super.attributeChangedCallback(name, oldValue, newValue);
     }
 
+    // dispatchEdit(e: MouseEvent) {
+    //     this.dispatchEvent(new CustomEvent(“edit”, {
+    //         bubbles: true,
+    //           detail: true}));
+    // }
+
+    dispatchClick(e: MouseEvent) {
+        this.dispatchEvent(new CustomEvent("edit", {
+            bubbles: true,
+            detail: true}));
+    }
+
     render() {
         // fill this in later
         return html`<p>
             <hello-world>${this.profile.nickname}</hello-world>
             <p><strong>Location:</strong> ${this.profile.city}</p>
-            <p><strong>Favorite Genres:</strong> ${JSON.stringify(this.profile.genres) || "None"}</p>
-            <p><strong>Favorite Mediums:</strong> ${JSON.stringify(this.profile.mediums) || "None"}</p>
-            <p><strong>Favorite Artists:</strong> ${JSON.stringify(this.profile.artists) || "None"}</p>
+            <p><strong>Favorite Genres:</strong> ${this.profile.genres.join(", ") || "None"}</p>
+            <p><strong>Favorite Mediums:</strong> ${this.profile.mediums.join(", ") || "None"}</p>
+            <p><strong>Favorite Artists:</strong> ${this.profile.artists.join(", ") || "None"}</p>
+            <button @click=${this.dispatchClick}>
+                Edit Profile
+            </button>
         </p>`;
     }
 
@@ -66,16 +88,36 @@ export class UserProfileEditElement extends UserProfileElement {
                     <dt>Username</dt>
                     <dd><input name="userid" disabled .value=${this.profile.userid}/></dd>
                     <dt>Name</dt>
-                    <dd><input name="name" disabled .value=${this.profile.name}/></dd>
+                    <dd><input name="name" .value=${this.profile.name}/></dd>
                     <dt>Nickname</dt>
-                    <dd><input name="nickname" disabled .value=${this.profile.nickname}/></dd>
+                    <dd><input name="nickname" .value=${this.profile.nickname}/></dd>
+                    <dt>City</dt>
+                    <dd><input name="city" .value=${this.profile.city}/></dd>
+                    <dt>Genres</dt>
+                    <dd>
+                        <input name="genres" .value=${this.profile.genres.join(", ")} />
+                    </dd>
+                    <dt>Mediums</dt>
+                    <dd>
+                        <input name="mediums" .value=${this.profile.mediums.join(", ")} />
+                    </dd>
+                    <dt>Artists</dt>
+                    <dd>
+                        <input name="artists" .value=${this.profile.artists.join(", ")} />
+                    </dd>
                 </dl>
                 <button type="submit">Submit</button>
             </form>
         `;
     }
 
-    static styles = [...UserProfileElement.styles, css``];
+    dispatchClick() {
+        this.dispatchEvent(new CustomEvent("edit", {
+            bubbles: true,
+            detail: false}));
+    }
+
+    // static styles = [...UserProfileElement.styles, css``];
 
     _handleSubmit(ev: Event) {
         ev.preventDefault(); // prevent browser from submitting form data itself
@@ -92,6 +134,7 @@ export class UserProfileEditElement extends UserProfileElement {
         const json = Object.fromEntries(entries);
 
         this._putData(json);
+        this.dispatchClick();
     }
 
     _putData(json: Profile) {

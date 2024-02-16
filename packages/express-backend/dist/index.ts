@@ -14,7 +14,7 @@ app.get("/hello", (req: Request, res: Response) => {
   res.send("Hello, World");
 });
 
-app.get("/api/profile/:userid", (req: Request, res: Response) => {
+app.get("/api/profiles/:userid", (req: Request, res: Response) => {
   const { userid } = req.params;
 
   profiles
