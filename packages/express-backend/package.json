@@ -2,7 +2,7 @@
   "name": "express-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.ts",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "npx nodemon",
     "build": "npx etsc",
@@ -21,9 +21,14 @@
     "typescript": "^5.3.3"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.1",
     "express": "^4.18.2",
-    "mongoose": "^8.1.1"
+    "jsonwebtoken": "^9.0.2",
+    "lit-frontend": "^1.0.0",
+    "mongoose": "^8.1.1",
+    "node-fs": "^0.1.7",
+    "ts-models": "^1.0.0"
   }
 }

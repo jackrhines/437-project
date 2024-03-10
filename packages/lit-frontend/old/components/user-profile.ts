@@ -1,6 +1,6 @@
 import { css, html, LitElement } from "lit";
 import { customElement, property, state } from "lit/decorators.js";
-import { Profile } from "../models/profile";
+import { Profile } from "../../../ts-models/src/profile";
 import {serverPath} from "../utils/rest";
 import {} from "./hello-world";
 

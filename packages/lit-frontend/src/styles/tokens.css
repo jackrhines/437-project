@@ -1,0 +1,38 @@
+:root {
+    --color-background-primary: blanchedalmond;
+    --color-background-secondary: #b298e5;
+    --color-background-primary-dark: dimgray;
+    --color-background-secondary-dark: #7845dc;
+    --color-text-standout: black;
+    --color-background-component: #fdc5c5;
+
+    --color-accent: var(--color-background-secondary);
+    /*--color-border-control: var(--color-background-control);*/
+    --color-background-control: #ccc;
+    --color-foreground-control: #fff;
+
+    --font-body: 'Quicksand', sans-serif;
+    --font-heading: 'Ubuntu', sans-serif;
+
+    --size-icon-small: 1em;
+    --size-icon-medium: 2em;
+    --size-icon-large: 4rem;
+
+    --size-spacing-small: 0.25rem;
+    --size-spacing-medium: 0.5rem;
+    --size-spacing-large: 1rem;
+    --size-spacing-xlarge: 2rem;
+
+    --size-corner-small: 2px;
+    --size-corner-medium: var(--size-spacing-small);
+    --size-corner-large: var(--size-spacing-medium);
+
+    --size-type-body: 1rem;
+    --size-type-mlarge: 1.25rem;
+    --size-type-large: 1.5rem;
+    --size-type-xlarge: 2rem;
+    --size-type-xxlarge: 2.5rem;
+
+    --time-transition-control: 300ms;
+
+}
