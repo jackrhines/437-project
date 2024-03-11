@@ -22,7 +22,8 @@ export class SiteHeader extends LitElement {
             <header>
             <a href="/app/" class="no-styling"><h1 class="extra-padding">The Gallery</h1></a>
             <drop-down>
-                <svg class="icon"><use href="/icons/gallery.svg#profile"/></svg>
+                ${this.renderAvatar()}
+<!--                <svg class="icon"><use href="/icons/gallery.svg#profile"/></svg>-->
                 <ul slot="menu">
                     <li>
                         <user-panel .using=${this.profile}></user-panel>
@@ -68,7 +69,40 @@ export class SiteHeader extends LitElement {
         text-decoration: none;
         color: var(--color-text-standout)
       }
+
+        .avatar {
+          grid-column: key;
+          grid-row: auto/span 2;
+          justify-self: end;
+          position: relative;
+          width: 80px;
+          aspect-ratio: 1;
+          background-color: var(--avatar-backgroundColor);
+          border-radius: 50%;
+          text-align: center;
+          line-height: var(--avatar-size);
+          font-size: calc(0.66 * var(--avatar-size));
+          font-family: var(--font-family-display);
+          color: var(--color-link-inverted);
+          overflow: hidden;
+        }
     `]
+
+  renderAvatar() {
+    const { avatar, name, nickname, color } = (this.profile ||
+      {}) as Profile;
+    const url = avatar;
+    const avatarImg = url
+      ? html`<img id="avatarImg" src="${url}" />`
+      : (nickname || name || " ").slice(0, 1);
+    const colorStyle = color
+      ? `--avatar-backgroundColor: ${color}`
+      : "";
+
+    return html` <div class="avatar" style=${colorStyle}>
+        ${avatarImg}
+    </div>`;
+  }
 
   updated(changedProperties: Map<string, unknown>) {
     console.log(

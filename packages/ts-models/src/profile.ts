@@ -6,4 +6,6 @@ export interface Profile {
     genres?: string[];
     mediums?: string[];
     artists?: string[];
+    avatar?: string,
+    color?: string,
 }

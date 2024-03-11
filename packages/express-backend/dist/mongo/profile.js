@@ -30,7 +30,9 @@ const profileSchema = new import_mongoose.Schema(
     city: { type: String, trim: true },
     genres: [String],
     mediums: [String],
-    artists: [String]
+    artists: [String],
+    avatar: String,
+    color: String
   },
   { collection: "user_profiles" }
 );
