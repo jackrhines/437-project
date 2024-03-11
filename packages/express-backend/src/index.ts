@@ -4,7 +4,7 @@ import { PathLike } from "node:fs";
 import fs from "node:fs/promises";
 import cors from "cors";
 import { connect } from "./MongoConnect";
-// import { uploadBlob, downloadBlob } from "./azure";
+import { uploadBlob, downloadBlob } from "./azure";
 import apiRouter from "./routes/api";
 import {loginUser, registerUser} from "./auth";
 
@@ -39,9 +39,9 @@ app.options("*", cors());
 
 app.post("/login", loginUser);
 app.post("/signup", registerUser);
-// app.post("/images", uploadBlob);
-// app.get("/images/:blob", downloadBlob);
-//
+app.post("/images", uploadBlob);
+app.get("/images/:blob", downloadBlob);
+
 app.use("/api", apiRouter);
 
 app.use("/stats", (req, res) => {

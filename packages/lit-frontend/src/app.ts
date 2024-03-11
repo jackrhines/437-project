@@ -4,19 +4,16 @@ import * as MVU from "./mvu";
 import { MsgType } from "./mvu";
 import { AuthenticatedUser, APIUser } from "./rest";
 import {
-  // Destination,
-  // Tour,
   Profile,
-  Art
-  // Point,
-  // Route,
-  // ChatMessage
+  Art,
+  Gallery
 } from "ts-models";
 
 export interface Model {
   art?: Art;
   user: APIUser;
   profile?: Profile;
+  gallery?: Gallery;
 }
 
 export const context = createContext<Model>("GalleryModel");
@@ -29,9 +26,18 @@ export interface UserLoggedIn extends MsgType<"UserLoggedIn"> {
   user: AuthenticatedUser;
 }
 
-// export interface ArtSelected extends MsgType<"ArtSelected"> {
-//   artId: string;
-// }
+export interface ArtSelected extends MsgType<"ArtSelected"> {
+  artId: string;
+}
+
+export interface ArtSaved extends MsgType<"ArtSaved"> {
+  artId: string;
+  art: Art;
+}
+
+export interface ArtSubmitted extends MsgType<"ArtSubmitted"> {
+  art: Art;
+}
 
 export interface ProfileSelected
   extends MsgType<"ProfileSelected"> {
@@ -41,6 +47,9 @@ export interface ProfileSelected
 export interface ProfileSaved extends MsgType<"ProfileSaved"> {
   userid: string;
   profile: Profile;
+}
+
+export interface GallerySelected extends MsgType<"GallerySelected"> {
 }
 
 // export interface ArtSaved
@@ -56,6 +65,10 @@ export interface ProfileSaved extends MsgType<"ProfileSaved"> {
 // }
 
 export type Message =
+  | GallerySelected
+  | ArtSelected
+  | ArtSaved
+  | ArtSubmitted
   | ProfileSelected
   | ProfileSaved
   | UserLoggedIn;

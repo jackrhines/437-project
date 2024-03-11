@@ -26,6 +26,7 @@ var path = __toESM(require("path"));
 var import_promises = __toESM(require("node:fs/promises"));
 var import_cors = __toESM(require("cors"));
 var import_MongoConnect = require("./MongoConnect");
+var import_azure = require("./azure");
 var import_api = __toESM(require("./routes/api"));
 var import_auth = require("./auth");
 (0, import_MongoConnect.connect)("blazing");
@@ -52,6 +53,8 @@ app.use((0, import_cors.default)());
 app.options("*", (0, import_cors.default)());
 app.post("/login", import_auth.loginUser);
 app.post("/signup", import_auth.registerUser);
+app.post("/images", import_azure.uploadBlob);
+app.get("/images/:blob", import_azure.downloadBlob);
 app.use("/api", import_api.default);
 app.use("/stats", (req, res) => {
   res.send(

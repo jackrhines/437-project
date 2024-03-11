@@ -239,7 +239,7 @@ export class UserProfileEditElement extends UserProfileElement {
       let entries = Array.from(formdata.entries())
         .map(([k, v]) => (v === "" ? [k] : [k, v]))
         .map(([k, v]) =>
-          k === "airports"
+          k === "genres" || k === "mediums"
             ? [k, (v as string).split(",").map((s) => s.trim())]
             : [k, v]
         );

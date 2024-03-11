@@ -1,15 +1,14 @@
 import express from "express";
 import { authenticateUser } from "../auth";
 import profileRouter from "./profiles";
+import artRouter from "./art";
 
 const router = express.Router();
 
 // all routes under this router require authentication
 router.use(authenticateUser);
 
-// router.use("/entourages", entourageRouter);
 router.use("/profiles", profileRouter);
-// router.use("/tours", tourRouter);
-// router.use("/directions", directionsRouter);
+router.use("/art", artRouter);
 
 export default router;

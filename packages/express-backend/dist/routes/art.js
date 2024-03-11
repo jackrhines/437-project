@@ -26,17 +26,41 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var api_exports = {};
-__export(api_exports, {
-  default: () => api_default
+var art_exports = {};
+__export(art_exports, {
+  default: () => art_default
 });
-module.exports = __toCommonJS(api_exports);
+module.exports = __toCommonJS(art_exports);
 var import_express = __toESM(require("express"));
-var import_auth = require("../auth");
-var import_profiles = __toESM(require("./profiles"));
-var import_art = __toESM(require("./art"));
+var import_art = __toESM(require("../services/art"));
+var import_uuid = require("uuid");
 const router = import_express.default.Router();
-router.use(import_auth.authenticateUser);
-router.use("/profiles", import_profiles.default);
-router.use("/art", import_art.default);
-var api_default = router;
+router.post("/", (req, res) => {
+  const artId = (0, import_uuid.v4)();
+  const newArt = req.body;
+  newArt.artId = artId;
+  import_art.default.create(newArt).then((a) => res.status(201).send(a)).catch((err) => res.status(500).send(err));
+});
+router.get("/:artid", (req, res) => {
+  const { artId } = req.params;
+  import_art.default.get(artId).then((a) => {
+    if (!a)
+      throw "Not found";
+    else
+      res.json(a);
+  }).catch((err) => res.status(404).end());
+});
+router.get("/", (req, res) => {
+  import_art.default.index().then((a) => {
+    if (!a)
+      throw "Not found";
+    else
+      res.json(a);
+  }).catch((err) => res.status(404).end());
+});
+router.put("/:artId", (req, res) => {
+  const { artId } = req.params;
+  const newArt = req.body;
+  import_art.default.update(artId, newArt).then((a) => res.json(a)).catch((err) => res.status(404).end());
+});
+var art_default = router;

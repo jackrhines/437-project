@@ -26,17 +26,34 @@ var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__ge
   mod
 ));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
-var api_exports = {};
-__export(api_exports, {
-  default: () => api_default
+var art_exports = {};
+__export(art_exports, {
+  default: () => art_default
 });
-module.exports = __toCommonJS(api_exports);
-var import_express = __toESM(require("express"));
-var import_auth = require("../auth");
-var import_profiles = __toESM(require("./profiles"));
-var import_art = __toESM(require("./art"));
-const router = import_express.default.Router();
-router.use(import_auth.authenticateUser);
-router.use("/profiles", import_profiles.default);
-router.use("/art", import_art.default);
-var api_default = router;
+module.exports = __toCommonJS(art_exports);
+var import_art = __toESM(require("../mongo/art"));
+function index() {
+  return import_art.default.find();
+}
+function get(artId) {
+  return import_art.default.find({ artId }).then((list) => list[0]).catch((err) => {
+    throw `${artId} Not Found`;
+  });
+}
+function create(art) {
+  const p = new import_art.default(art);
+  return p.save();
+}
+function update(artId, art) {
+  return new Promise((resolve, reject) => {
+    import_art.default.findOneAndUpdate({ artId }, art, {
+      new: true
+    }).then((profile) => {
+      if (art)
+        resolve(art);
+      else
+        reject("Failed to update art");
+    });
+  });
+}
+var art_default = { index, get, create, update };
