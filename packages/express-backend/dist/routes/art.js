@@ -41,7 +41,7 @@ router.post("/", (req, res) => {
   newArt.artId = artId;
   import_art.default.create(newArt).then((a) => res.status(201).send(a)).catch((err) => res.status(500).send(err));
 });
-router.get("/:artid", (req, res) => {
+router.get("/:artId", (req, res) => {
   const { artId } = req.params;
   import_art.default.get(artId).then((a) => {
     if (!a)

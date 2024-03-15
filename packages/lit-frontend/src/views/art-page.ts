@@ -33,30 +33,41 @@ export class ArtPageElement extends App.View {
 
   @property()
   get art() {
-    return this.getFromModel<Art>("art");
+    const art = this.getFromModel<Art>("art");
+    console.log('GET ART', art)
+    return art
   }
 
   @state()
   image? = this.art?.image;
 
-  attributeChangedCallback(
-    name: string,
-    oldValue: string,
-    newValue: string
-  ) {
-    if (
-      name === "artId" &&
-      oldValue !== newValue &&
-      newValue
-    ) {
-      console.log("Art Page:", newValue);
-      this.dispatchMessage({
-        type: "ArtSelected",
-        artId: newValue
-      });
-    }
-    super.attributeChangedCallback(name, oldValue, newValue);
+  connectedCallback() {
+    console.log("Art Page Callback:", this.artId);
+    this.dispatchMessage({
+      type: "ArtSelected",
+      artId: this.artId || ''
+    });
+    super.connectedCallback();
   }
+
+  // attributeChangedCallback(
+  //   name: string,
+  //   oldValue: string,
+  //   newValue: string
+  // ) {
+  //   if (
+  //     name === "artId" &&
+  //     oldValue !== newValue &&
+  //     newValue
+  //   ) {
+  //     console.log("Art Page:", newValue);
+  //     this.dispatchMessage({
+  //       type: "ArtSelected",
+  //       artId: newValue
+  //     });
+  //   }
+  //   super.attributeChangedCallback(name, oldValue, newValue);
+  // }
 
   render() {
     const {
@@ -124,10 +135,12 @@ export class ArtPageElement extends App.View {
     };
 
     return html`
-        <p>is it getting here at all??</p>
-      <main class="page">${renderDisplayOrForm()}</main>
+        ${renderDisplayOrForm()}
     `;
   }
+
+  // <main class="page">${renderDisplayOrForm()}</main>
+
 
   static styles =
     css`

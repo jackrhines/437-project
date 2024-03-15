@@ -10,7 +10,7 @@ export default [
   //   component: "profile-page",
   // },
   { path: "/app/profile/:userid", component: "profile-page" },
-  { path: "/app/art/:artid", component: "art-page" },
+  { path: "/app/art/:artId", component: "art-page" },
   { path: "/app/submit-art", component: "submit-art-page"},
   // { path: "/app/:art([0-9a-f]+)", component: "art-page" },
   { path: "/app", component: "gallery-page" },

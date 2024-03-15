@@ -17,7 +17,7 @@ router.post("/", (req: Request, res: Response) => {
     .catch((err) => res.status(500).send(err));
 });
 
-router.get("/:artid", (req: Request, res: Response) => {
+router.get("/:artId", (req: Request, res: Response) => {
   const { artId } = req.params;
 
   art
