@@ -78,7 +78,7 @@ export class ArtPageElement extends App.View {
       genres = [],
       mediums = [],
     } = this.art as Art;
-    const artName = this.art?.title;
+    // const artName = this.art?.title;
     const imageUrl = this.image || image;
 
     console.log("Art:", this.art);
@@ -118,17 +118,11 @@ export class ArtPageElement extends App.View {
         `;
       } else {
         return html`
-          <header>
-            <a class="breadcrumb" href="/app/${this.artId}">
-              ${artName}
-            </a>
+          <div>
             <h2>${title}</h2>
             <p>${description}</p>
-              <img src=${imageUrl} />
-              <a href="?edit=t">Edit</a>
-          </header>
-          <div class="hero">
             <img src=${imageUrl} />
+            <a href="?edit=t">Edit</a>
           </div>
         `;
       }

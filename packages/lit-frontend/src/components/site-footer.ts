@@ -37,9 +37,6 @@ export class SiteFooter extends LitElement {
         align-items: center;
         justify-content: space-evenly;
         padding: 2em;
-        position: sticky;
-        bottom: 0;
-        width: 100%;  
       }
 
       svg.icon {

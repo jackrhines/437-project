@@ -160,7 +160,7 @@ export class UserProfileEditElement extends UserProfileElement {
                     <dd>
                         <input
                           name="avatar"
-                          type="file" 
+                          type="file"
                           @change=${this._handleAvatarSelected} />
                     </dd>
                     <dt>Name</dt>
@@ -218,6 +218,8 @@ export class UserProfileEditElement extends UserProfileElement {
     const target = ev.target as HTMLInputElement;
     const selectedFile = (target.files as FileList)[0];
 
+    console.log('SELCTED FILE', selectedFile)
+
     const reader: Promise<string> = new Promise(
       (resolve, reject) => {
         const fr = new FileReader();
@@ -233,6 +235,8 @@ export class UserProfileEditElement extends UserProfileElement {
   _handleSubmit(event: Event) {
     event.preventDefault(); // prevent browser from submitting form data itself
 
+    const { avatar } = this.profile;
+
     if (this.profile) {
       const target = event.target as HTMLFormElement;
       const formdata = new FormData(target);
@@ -244,8 +248,11 @@ export class UserProfileEditElement extends UserProfileElement {
             : [k, v]
         );
 
-      if (this.newAvatar)
+      if (this.newAvatar) {
         entries.push(["avatar", this.newAvatar]);
+      } else {
+        entries.push(["avatar", avatar || ''])
+      }
 
       const json = Object.fromEntries(entries);
 
